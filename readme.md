@@ -8,5 +8,5 @@ The Penna model is a bit string model to simulate population aging. It implement
 - $B$: genome size
 - $T$: mutation threshold
 - $N_{max}$: maximal number of individuals
-- $M$: mutation rate ($M/leq B$)
+- $M$: mutation rate ($M\leq B$)
 - $R$: reproduction age
