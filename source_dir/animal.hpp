@@ -10,8 +10,9 @@ namespace Penna {
 
 class Animal {
     public:
-        Animal(const Genome& g) : genome_(g), age_(0), mutations_(0) {} // ctor
-        ~Animal() {} // dtor
+        Animal() : genome_(), age_(0), mutations_(0) {} // default ctor
+        Animal(const Genome& g) : genome_(g), age_(0), mutations_(g.gene_at(0)) {} // ctor from genome
+        // ~Animal() {} // dtor not needed, handled by compiler
 
         static void set_mutation_threshold( count_t );
         static void set_reproductive_age( count_t );
