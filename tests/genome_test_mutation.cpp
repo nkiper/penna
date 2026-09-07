@@ -1,4 +1,4 @@
-// Test that genome is initialized with only good genes by default
+// Test that genome is mutated correctly, i. e. <= M_ times.
 
 #include <genome.hpp>
 

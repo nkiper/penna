@@ -17,7 +17,7 @@ void init_rng() { // in main.cpp, call Penna::init_rng();
 }
 
 count_t Genome::M_ = 0;
-count_t Genome::maxage_ = Genome::genome_size-1;
+count_t Genome::maxage_ = Genome::genome_size;
 
 void Genome::set_mutation_rate ( count_t rate ){
     if ( rate > maxage_ ) {

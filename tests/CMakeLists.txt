@@ -7,3 +7,15 @@ add_test(NAME Genome-Default-Constructor COMMAND genome_test_default_ctor)
 add_executable(genome_test_mutation genome_test_mutation.cpp)
 target_link_libraries(genome_test_mutation penna)
 add_test(NAME Genome-Mutation COMMAND genome_test_mutation)
+
+add_executable(animal_test_default_ctor animal_test_default_ctor.cpp)
+target_link_libraries(animal_test_default_ctor penna)
+add_test(NAME Animal-Default-Constructor COMMAND animal_test_default_ctor)
+
+add_executable(animal_test_copy_assignment animal_test_copy_assignment.cpp)
+target_link_libraries(animal_test_copy_assignment penna)
+add_test(NAME Animal-Copy-Assignment COMMAND animal_test_copy_assignment)
+
+add_executable(animal_test_copy_constructor animal_test_copy_constructor.cpp)
+target_link_libraries(animal_test_copy_constructor penna)
+add_test(NAME Animal-Copy-Constructor COMMAND animal_test_copy_constructor)
