@@ -1,1 +1,1 @@
-add_library(penna STATIC genome.cpp animal.cpp)
+add_library(penna STATIC population.cpp genome.cpp animal.cpp rng.cpp)

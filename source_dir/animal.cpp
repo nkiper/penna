@@ -46,7 +46,7 @@ void Animal::grow() {
     }
 }
 
-Animal Animal::reproduce() {
+Animal Animal::reproduce() const {
     Animal child(genome_);
     child.genome_.mutate();
     return child;

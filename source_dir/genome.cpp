@@ -2,19 +2,10 @@
 // Implementation of the genome class
 
 #include "genome.hpp"
+#include "rng.hpp"
 #include <iostream>
-#include <random>
-
-namespace {
-    constexpr int random_seed = 42;
-    std::mt19937 e{random_seed};
-} 
 
 namespace Penna {
-
-void init_rng() { // in main.cpp, call Penna::init_rng();
-    std::cout << "Using random seed " << random_seed << ".\n";
-}
 
 count_t Genome::M_ = 0;
 count_t Genome::maxage_ = Genome::genome_size;
@@ -46,12 +37,21 @@ void Genome::set_max_age( count_t maxage ){
 
 void Genome::mutate() {
     // randomly flip M_ of the first maxage_ bits in genome
-    std::uniform_int_distribution<count_t> dist(0,maxage_-1);
     count_t mutation_counter = 0;
     while (mutation_counter < M_) {
-        genes_.flip(dist(e));
+        genes_.flip(random_int(0, maxage_-1));
         ++mutation_counter;
     } 
+}
+
+count_t Genome::total_mutations() const {
+    count_t mutation_count = 0;
+    for (count_t i = 0; i < Genome::genome_size; ++i ) {
+        if ( this->gene_at(i) ) {
+            mutation_count += 1;
+        } 
+    }
+    return mutation_count;
 }
 
 } // namespace Penna
