@@ -23,6 +23,7 @@ class Genome{
         static count_t max_age() { return maxage_; }
         bool gene_at( count_t i ) const { return genes_.test(i); }
         void mutate(); // mutate by flipping M_ genes
+        
     private:
         static count_t M_; // mutation rate
         static count_t maxage_;

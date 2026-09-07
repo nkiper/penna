@@ -1,0 +1,9 @@
+include_directories(${PROJECT_SOURCE_DIR}/source_dir)
+
+add_executable(genome_test_default_ctor genome_test_default_ctor.cpp)
+target_link_libraries(genome_test_default_ctor penna)
+add_test(NAME Genome-Default-Constructor COMMAND genome_test_default_ctor)
+
+add_executable(genome_test_mutation genome_test_mutation.cpp)
+target_link_libraries(genome_test_mutation penna)
+add_test(NAME Genome-Mutation COMMAND genome_test_mutation)
