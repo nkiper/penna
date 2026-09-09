@@ -70,3 +70,10 @@ Testing/
 
 # pdfs
 *.pdf
+
+#python stuff
+analysis/myvenv/
+.env
+
+#misc
+*.DS_Store

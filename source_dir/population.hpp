@@ -23,6 +23,10 @@ class Population {
 
         void timestep(); // age all animals by one, reproduce, die
         bool death_probability_check(); // determine death prob. based on current population size
+
+        std::vector<count_t> get_age_distribution() const;
+        std::vector<count_t> get_suffered_mutations_distribution() const;
+        std::vector<count_t> get_total_mutations_distribution() const;
     private:
         std::vector<Animal> animals_;
         static count_t Nmax_;

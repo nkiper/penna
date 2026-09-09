@@ -10,11 +10,13 @@ namespace Penna {
 
 count_t Population::Nmax_ = 10;
 
+void Population::set_N_max ( count_t Nmax ) {
+    Nmax_ = Nmax;
+}
+
 void Population::add_animal (const Animal& a){
     if (animals_.size() < Nmax_) {
         animals_.push_back(a);
-    } else {
-        std::cout << "Max. population size " << Nmax_ << " reached. Could not add animal.\n";
     }
 }
 
@@ -56,7 +58,8 @@ void Population::timestep() {
     // reproduce all animals with age > reproductive age
     std::vector<Animal> offspring;
     for (const auto& animal : animals_) {
-        if (animal.age() > Animal::reproductive_age()) {
+        double p = random_double();
+        if (animal.age() > Animal::reproductive_age() && p < Animal::birth_rate()) {
             Animal child = animal.reproduce();
             offspring.push_back(child);
         }
@@ -66,15 +69,39 @@ void Population::timestep() {
         add_animal(child);
     }
 
-    // animals with age > maxage die, animals with mutations > threshold die with prob. 1-N/N_max
+    // animals with age > maxage die, animals with mutations > threshold die with prob. N/N_max
     std::erase_if(animals_, [this](const Animal& a) {
         return (a.age() > Genome::max_age()) || (a.mutations() > Animal::mutation_threshold() && death_probability_check());
     });
 }
 
 bool Population::death_probability_check() {
-    aggr_t prob = 1-(double)animals_.size()/Nmax_;
+    aggr_t prob = (double)animals_.size()/Nmax_;
     return random_double() < prob;
+}
+
+std::vector<count_t> Population::get_age_distribution() const {
+    std::vector<count_t> dist(Genome::max_age() + 1, 0);
+    for (const auto& animal : animals_) {
+        dist[animal.age()]++;
+    }
+    return dist;
+}
+
+std::vector<count_t> Population::get_suffered_mutations_distribution() const {
+    std::vector<count_t> dist(Genome::genome_size + 1, 0);
+    for (const auto& animal : animals_) {
+        dist[animal.mutations()]++;
+    }
+    return dist;
+}
+
+std::vector<count_t> Population::get_total_mutations_distribution() const {
+    std::vector<count_t> dist(Genome::genome_size + 1, 0);
+    for (const auto& animal : animals_) {
+        dist[animal.genome().total_mutations()]++;
+    }
+    return dist;
 }
 
 } // namespace Penna

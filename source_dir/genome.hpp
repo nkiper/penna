@@ -6,12 +6,11 @@
 
 #include <bitset>
 #include <limits>
+#include "rng.hpp"
 
 namespace Penna {
 
 using count_t = unsigned int;
-
-void init_rng(); // initiate random number generator
 
 class Genome{
     public:
@@ -21,7 +20,7 @@ class Genome{
         static void set_max_age ( count_t maxage = genome_size );
         static void set_mutation_rate( count_t rate = 0 );
         static count_t max_age() { return maxage_; }
-        bool gene_at( count_t i ) const { return genes_.test(i); }
+        bool gene_at( count_t ) const;
         void mutate(); // mutate by flipping M_ genes
         count_t total_mutations() const; // return total number of deleterious mutations
     private:

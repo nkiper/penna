@@ -1,0 +1,4 @@
+random seed = 42, T = 2, R = 8, Nmax = 10000, N0 = 1000, Tmax = 1000, birth_rate = 1, M = 2, bad_genes_init = 0.5, max_age = 64 -> N stabilizes at Nmax 
+random seed = 42, T = 2, R = 8, Nmax = 10000, N0 = 1000, Tmax = 1000, birth_rate = 0.1, M = 2, bad_genes_init = 0.5, max_age = 64 -> N stabilizes at Nmax 
+random seed = 42, T = 2, R = 8, Nmax = 10000, N0 = 1000, Tmax = 1000, birth_rate = 0.1, M = 2, bad_genes_init = 0.5, max_age = 32 -> N stays close to 900 
+random seed = 42, T = 2, R = 16, Nmax = 10000, N0 = 1000, Tmax = 10000, birth_rate = 0.1, M = 4, bad_genes_init = 0.5, max_age = 64 -> N stabilizes close to 600 

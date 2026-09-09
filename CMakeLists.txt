@@ -14,3 +14,6 @@ if (BUILD_TESTS)
     enable_testing()
     add_subdirectory(tests)
 endif ()
+
+add_executable(penna_sim source_dir/main.cpp)
+target_link_libraries(penna_sim penna)
