@@ -74,6 +74,7 @@ literature/*
 #python stuff
 analysis/penna_env/
 .env
+*.ipynb*
 
 #misc
 *.DS_Store
