@@ -68,11 +68,11 @@ vcpkg_installed/
 Testing/
 .cache/
 
-# pdfs
-*.pdf
+# literature folder
+literature/*
 
 #python stuff
-analysis/myvenv/
+analysis/penna_env/
 .env
 
 #misc

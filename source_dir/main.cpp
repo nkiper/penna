@@ -120,7 +120,7 @@ int main() {
     std::vector<Penna::SimulationConfig> configs = {
         // max_age, T, R, N_max, birth_rate, M, N0, T_max, seed, num_runs
         // Base case
-        // {63, 2, 16, 10000, 0.1, 4, 1000, 10000, 42, 100},
+        {63, 2, 16, 10000, 0.1, 4, 1000, 10000, 42, 100},
         
         // Vary mutation threshold
         {63, 1, 16, 10000, 0.1, 4, 1000, 10000, 42, 40},
